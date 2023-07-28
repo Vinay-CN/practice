@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 class Solution {
@@ -30,6 +31,8 @@ class Solution {
     }
 }
 
+ //gererate all permutations of array given distinct values "
+//https://leetcode.com/problems/permutations/
 public class Perm {
     public static void main(String[] args) {
 
