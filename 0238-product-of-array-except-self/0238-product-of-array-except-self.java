@@ -1,33 +1,54 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
+        int[] ans = new int[nums.length] ; 
+        int curr = 1 ;
+        Arrays.fill(ans,1);
+        for(int i = 0 ; i < nums.length ; i++){
+            ans[i] = ans [i] * curr ;
+            curr = curr * nums[i];
+        }
+
+        curr = 1;
+        for(int i = nums.length -1 ; i>=0 ; i-- ){
+            ans[i] = ans[i]* curr;
+            curr = curr * nums[i];
+        }
+
+        return ans;
+    }
+}
+
+
+/*class Solution {
+    public int[] productExceptSelf(int[] nums) {
              //  O(N)
         int n = nums.length;
         int countZeroes = 0;
         int indexZero = -1;
         int productWithoutZero = 1;
-        
+        //count zeros , if zeros greater than or equal to 2 then whole array will be zero else one zero means except oth position everthing will be zero  
         for(int i = 0 ; i < n ; i++) {
             if(nums[i] == 0) {
-                countZeroes++;
+                countZeroes++;   //zero means increase the count and store the index
                 indexZero = i;
             }
             else {
-                productWithoutZero *= nums[i];
+                productWithoutZero *= nums[i]; //else just multiply
             }
         }
         
         int [] output = new int [n];
-        if(countZeroes == 0) {
+        if(countZeroes == 0) {        // 0 zeros means we can get multiply by dividing the number by totalproduct
             for(int i = 0 ; i < n ; i++) {
                 output[i] = productWithoutZero / nums[i];
             }
         }
-        else if(countZeroes == 1) {
+        else if(countZeroes == 1) { //one zero means we know everthing will be zero except zeroth position so we change zeroth position 
             output[indexZero] = productWithoutZero;
         }
         return output;
     }
-}
+}*/
 
 
 /*class Solution {
