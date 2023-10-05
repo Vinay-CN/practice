@@ -4,13 +4,13 @@ class Solution {
         int curr = 1 ;
         Arrays.fill(ans,1);
         for(int i = 0 ; i < nums.length ; i++){
-            ans[i] = ans [i] * curr ;
-            curr = curr * nums[i];
+            ans[i] = ans [i] * curr ; //left to right
+            curr = curr * nums[i];  
         }
 
         curr = 1;
         for(int i = nums.length -1 ; i>=0 ; i-- ){
-            ans[i] = ans[i]* curr;
+            ans[i] = ans[i]* curr; //right to left
             curr = curr * nums[i];
         }
 
