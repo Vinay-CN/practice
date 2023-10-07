@@ -28,12 +28,10 @@ class Solution {
 		for(int i = 0 ; i < s3.length();i++){
 			hm3.add(s3.charAt(i));
 		}
-		for(String a : words){
-            
-				if(con(a,hm1)) al.add(a);
-			    else if(con(a,hm2)) al.add(a);
-				else if(con(a,hm3)) al.add(a);    
+		for(String a : words){    
+            	if(con(a,hm1) || con(a,hm2) || con(a,hm3) ) al.add(a);   
 			}
+
 		String[] ans = new String[al.size()];
         for(int i = 0 ; i < ans.length ; i++) ans[i]=al.get(i);
          
