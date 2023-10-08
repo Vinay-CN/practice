@@ -16,3 +16,32 @@ class Solution {
 
     }
 }
+
+/*class Solution {
+    public static boolean check(int[][] matrix, int i, int j, int n, int m){
+        int temp = matrix[i][j];
+        while(i<n && j<m){
+            if(matrix[i][j]!=temp){
+                return false;
+            }
+                i++;
+                j++;
+        }
+        return true;
+    }
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        int n = matrix.length;
+        int m = matrix[0].length;
+        for(int i=0; i<m; i++){
+            if(!check(matrix,0,i,n,m)){
+                return false;
+            }
+        }
+        for(int i=1; i<n; i++){
+            if(!check(matrix,i,0,n,m)){
+                return false;
+            }
+        }
+        return true;
+    }
+}*/
