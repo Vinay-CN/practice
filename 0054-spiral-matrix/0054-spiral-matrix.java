@@ -13,7 +13,7 @@ class Solution {
             li.add(mat[row][m]);
         }
 
-        if(i<n){
+        if(i<n){// if it is n * n [1,2,3,4,8,12,11,10,9,5,6,7,6] then it will repeat one row again to avoid we need to check if we have any rows left or we are standing at the last row if i = 1 and n = 1 it means last row 
 
             for(int col = m - 1 ; col >= j ; col-- ){ //last row in reverse
                li.add(mat[n][col]);
@@ -21,7 +21,7 @@ class Solution {
             }
         }
         
-        if(j<m){
+        if(j<m){ //[7,9,6,9]if only one row pressent then it will repeat the same thing once again and same ans
             for(int row = n-1 ; row >= i + 1 ; row--){ //last row in reverse
                li.add(mat[row][j]);
 
