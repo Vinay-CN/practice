@@ -1,27 +1,33 @@
-import java.util.LinkedList;
-import java.util.List;
-
 class Solution {
-    public List<Integer> doIt(int[][] mat, int i, int j, int n, int m, List<Integer> li) {
-        for (int col = j; col <= m; col++) {
+    public List<Integer> doIt(int[][] mat,int i , int j , int n , int  m ,List<Integer> li) {
+
+
+        for(int col = j ; col <=m ; col++){ //first row 
             li.add(mat[i][col]);
         }
 
-        for (int row = i + 1; row <= n; row++) {
+
+        
+        for(int row = i + 1 ; row <= n ; row++){ //last column
+
             li.add(mat[row][m]);
         }
 
-        if (i < n) {
-            for (int col = m - 1; col >= j; col--) {
-                li.add(mat[n][col]);
-            }
-        }
+        if(i<n){
 
-        if (j < m) {
-            for (int row = n - 1; row > i; row--) {
-                li.add(mat[row][j]);
+            for(int col = m - 1 ; col >= j ; col-- ){ //last row in reverse
+               li.add(mat[n][col]);
+
             }
         }
+        
+        if(j<m){
+            for(int row = n-1 ; row >= i + 1 ; row--){ //last row in reverse
+               li.add(mat[row][j]);
+
+            }
+        }
+        
 
         return li;
     }
@@ -31,16 +37,17 @@ class Solution {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return li;
         }
-        int i = 0, j = 0, n = matrix.length - 1, m = matrix[0].length - 1;
-
-        while (i <= n && j <= m) {
-            doIt(matrix, i, j, n, m, li);
+        int i = 0 , j = 0 , n = matrix.length -1 , m = matrix[0].length - 1 ;
+       
+        while( i<=n && j<=m){
+            doIt(matrix,i,j,n,m,li);
             i++;
             j++;
             n--;
             m--;
         }
         return li;
+
     }
 }
 
