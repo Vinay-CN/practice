@@ -1,49 +1,37 @@
 class Solution {
-    public void conquere(int[] arr,int si,int li,int mid)
-    {
-       int[] temp=new int[(li-si)+1];
-       int i=si;
-       int j=mid+1;
-       int k=0;
-       while(i<=mid &&j<=li)
-       {
-           if(arr[i]<=arr[j])
-           {
-               temp[k++]=arr[i++];
-           }
-           else
-           {
-               temp[k++]=arr[j++];
-           }
-       }
-       while(i<=mid)
-       {
-          temp[k++]=arr[i++];  
-       } 
-       while(j<=li)
-       {
-           temp[k++]=arr[j++];
-       } 
-       k=0;
-       int r=si;
-       while(k<temp.length)
-       {
-           arr[r++]=temp[k++];
-       }
-    }
-    public void mergeSort(int[] arr,int si,int li)
-    {
-        if(si>=li)
-        {
-           return;
+
+    public void conquere(int[] nums ,int s,int e, int mid){
+        int i = s ;
+        int j = mid+1 ;
+        int[] temp = new int[(e-s)+1];
+        int k = 0 ;
+        while(i<=mid && j<=e){
+            if(nums[i]<=nums[j]) temp[k++] = nums[i++];
+            else temp[k++] = nums[j++];
         }
-        int mid=si+(li-si)/2;
-        mergeSort(arr,si,mid);
-        mergeSort(arr,mid+1,li);
-        conquere(arr,si,li,mid);
+
+        while(i<=mid){
+            temp[k++] = nums[i++];
+        }
+
+        while(j<=e){
+            temp[k++] = nums[j++];
+        }
+        int originalIndex = s ;
+        k = 0 ;
+        for(int a : temp){
+            nums[originalIndex++] = temp[k++];
+        }
+    }
+    public void mergeSort(int[] nums,int s ,int e ){
+        if(s>=e) return ;
+        int mid = s+(e-s)/2 ;
+        mergeSort(nums,s,mid);
+        mergeSort(nums,mid+1,e);
+        conquere(nums,s,e,mid);
     }
     public int[] sortArray(int[] nums) {
-       mergeSort(nums,0,nums.length-1);
-       return nums; 
+        mergeSort(nums,0,nums.length-1);
+        return nums;
     }
 }
