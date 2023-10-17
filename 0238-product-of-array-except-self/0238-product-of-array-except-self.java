@@ -10,7 +10,7 @@ class Solution {
 
         curr = 1;
         for(int i = nums.length -1 ; i>=0 ; i-- ){
-            ans[i] = ans[i]* curr; //right to left
+            ans[i] = ans[i] * curr; //right to left
             curr = curr * nums[i];
         }
 
