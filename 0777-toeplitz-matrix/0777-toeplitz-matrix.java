@@ -6,7 +6,7 @@ class Solution {
         for(int i = 0 ; i < n ; i++){
 
             for(int j = m - 1 ; j >=0 ; j--){
-                if(matrix[i][j] != matrix[i+1][j+1]) return false;
+                if(matrix[i][j] != matrix[i+1][j+1]) return false; // i will check if i+1 and j+1 is not equal
             }
         } 
 
