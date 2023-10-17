@@ -4,7 +4,7 @@ class Solution {
         int curr = 1 ;
         Arrays.fill(ans,1);
         for(int i = 0 ; i < nums.length ; i++){
-            ans[i] = ans [i] * curr ; //left to right
+            ans[i] = curr ; //left to right
             curr = curr * nums[i];  
         }
 
