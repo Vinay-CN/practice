@@ -1,3 +1,5 @@
+
+ //bruteforce
 // class Solution {
 
 //     public  boolean con(String s , HashSet<Character> hm){
@@ -41,7 +43,7 @@
 
 
 
-
+//  //using set and row num
 // static ArrayList<String> getStrings(ArrayList<String> arr)
 // {
 //     // Your Code Here
@@ -60,62 +62,30 @@
 //     return result;
 // }
 
+
+
+//using constant space and 
 class Solution {
     public String[] findWords(String[] words) {
-        String one = "qwertyuiopQWERTYUIOP";
-        String two = "asdfghjklASDFGHJKL";
-        String three = "zxcvbnmZXCVBNM";
-        List<String> list = new LinkedList<>();
+        String s1 = "qwertyuiopQWERTYUIOP";
+        String s2 = "asdfghjklASDFGHJKL";
+        String s3 = "zxcvbnmZXCVBNM"; 
+        ArrayList<String> list = new ArrayList<>();
         for(int i=0;i<words.length;i++){
-            if(check(words[i],one) || check(words[i],two) || check(words[i],three)){
-                list.add(words[i]);
+            int count1=0,count2=0,count3=0,len=words[i].length();
+            for(int j=0;j<len;j++){
+                if(s1.contains(Character.toString(words[i].charAt(j))))
+                    count1++;
+                else if(s2.contains(Character.toString(words[i].charAt(j))))
+                    count2++;
+                else if(s3.contains(Character.toString(words[i].charAt(j))))
+                    count3++;
+                if(count1==len || count2==len || count3==len)
+                    list.add(words[i]);
             }
         }
-        
-        return list.toArray(new String[0]);
-    }
-    public boolean check(String s,String checker){
-        boolean temp = true;
-        for(char c : s.toCharArray()){
-            boolean isTrue = false;
-            for(char ch : checker.toCharArray()){
-                if(c == ch){
-                    isTrue = true;
-                    break;
-                }
-            }
-            if(!isTrue){
-                return false;
-            }
-        }
-        return temp;
-
+        String ans[] = new String[list.size()];
+        list.toArray(ans);
+        return ans;
     }
 }
-
-
-
-// class Solution {
-//     public String[] findWords(String[] words) {
-//         String s1 = "qwertyuiopQWERTYUIOP";
-//         String s2 = "asdfghjklASDFGHJKL";
-//         String s3 = "zxcvbnmZXCVBNM"; 
-//         ArrayList<String> list = new ArrayList<>();
-//         for(int i=0;i<words.length;i++){
-//             int count1=0,count2=0,count3=0,len=words[i].length();
-//             for(int j=0;j<len;j++){
-//                 if(s1.contains(Character.toString(words[i].charAt(j))))
-//                     count1++;
-//                 else if(s2.contains(Character.toString(words[i].charAt(j))))
-//                     count2++;
-//                 else if(s3.contains(Character.toString(words[i].charAt(j))))
-//                     count3++;
-//                 if(count1==len || count2==len || count3==len)
-//                     list.add(words[i]);
-//             }
-//         }
-//         String ans[] = new String[list.size()];
-//         list.toArray(ans);
-//         return ans;
-//     }
-// }
