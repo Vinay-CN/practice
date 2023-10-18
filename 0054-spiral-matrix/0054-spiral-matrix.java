@@ -1,4 +1,4 @@
-class Solution {
+class Solution { //TC 0(M*N) since we visit all the elements once space is O(m*n) since we store all the elements
     public List<Integer> doIt(int[][] mat,int i , int j , int n , int  m ,List<Integer> li) {
 
 
@@ -13,7 +13,7 @@ class Solution {
             li.add(mat[row][m]);
         }
 
-        if(i<n){// if it is n * n [1,2,3,4,8,12,11,10,9,5,6,7,6] then it will repeat one row again to avoid we need to check if we have any rows left or we are standing at the last row if i = 1 and n = 1 it means last row 
+        if(i<n){// if it is n * n [1,2,3,4,8,12,11,10,9,5,6,7,6] then it will repeat one row again to avoid we need to    check if we have any rows left or we are standing at the last row if i = 1 and n = 1 it means last row 
 
             for(int col = m - 1 ; col >= j ; col-- ){ //last row in reverse
                li.add(mat[n][col]);
