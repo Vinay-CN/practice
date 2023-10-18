@@ -1,41 +1,20 @@
 class Solution {
-    public void swap(int[] nums,int i , int j ){
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] =t;
+    public void swap(int i , int j , int[] nums){
+        int temp = nums[i] ;
+        nums[i] = nums[j] ;
+        nums[j] = temp;
     }
     public int removeDuplicates(int[] nums) {
-        if(nums.length==1)  return 1;
-        int i = 0 , j = 1;
-        while(j < nums.length){
-            while(nums[i]==nums[j]&& j<nums.length-1) j++;
-                if(nums[i]!=nums[j]){
-                    swap(nums,i+1,j)  ;
-                    i++;
-                }
-            
+        if(nums.length==1) return 1;
+        int j = 0 ;
+        int i = 0 ;
+        while(j<nums.length){
+            if(nums[i]!=nums[j]){
+                i++;
+                swap(i,j,nums);
+            }
             j++;
         }
         return i+1;
     }
 }
-
-
-
-
-// class Solution {
-//     public int removeDuplicates(int[] nums) {
-//      int newIndex = 1; // Start with index 1 because the first element is already in place
-
-//         for (int i = 0; i < nums.length - 1; i++) {
-
-//             if (nums[i] < nums[i+1]) { // If the current element is less than the next element
-            
-//                 nums[newIndex] = nums[i+1]; // Move the next element to the new index
-//                 newIndex++; // Increment the new index
-//             }
-//         }
-//     return newIndex; // Return the length of the new subarray
-
-//     }
-// }
