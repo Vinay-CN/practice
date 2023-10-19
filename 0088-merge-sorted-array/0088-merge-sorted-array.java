@@ -1,3 +1,5 @@
+
+//bad solution 
 /*class Solution {
     public void swap(int i , int j , int[] nums ){
         int temp =  nums[i] ;
