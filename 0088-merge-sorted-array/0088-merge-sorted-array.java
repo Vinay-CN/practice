@@ -1,4 +1,4 @@
-class Solution {
+/*class Solution {
     public void swap(int i , int j , int[] nums ){
         int temp =  nums[i] ;
         nums[i] = nums[j];
@@ -38,5 +38,25 @@ class Solution {
             j--;
         }
 
+    }
+}*/
+
+
+
+
+
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+        //if j in nums2 becomes less than zero means we have got our solution
+        while (j >= 0) {
+            if (i >= 0 && nums1[i] > nums2[j]) { //replace k with i and move both
+                nums1[k--] = nums1[i--];
+            } else {
+                nums1[k--] = nums2[j--]; //replace k with j and move both
+            }
+        }
     }
 }
