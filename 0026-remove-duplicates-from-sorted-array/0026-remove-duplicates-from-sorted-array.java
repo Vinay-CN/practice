@@ -9,12 +9,13 @@ class Solution {
         int j = 0 ;
         int i = 0 ;
         while(j<nums.length){
-            if(nums[i]!=nums[j]){
+            if(nums[i]!=nums[j]){ //if j is at unique element
                 i++;
                 swap(i,j,nums);
             }
-            j++;
+            j++; //else move j
         }
         return i+1;
     }
 }
+
