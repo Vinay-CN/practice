@@ -1,5 +1,8 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
+
+        //multiply with curr and update and then give your contribution to curr 
+        //curr will have value till you and curr will multiply you and it will take your value with you 
         int[] ans = new int[nums.length] ; 
         int curr = 1 ;
         Arrays.fill(ans,1);
