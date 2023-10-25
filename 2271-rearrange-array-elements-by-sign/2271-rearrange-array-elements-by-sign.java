@@ -16,9 +16,9 @@ class Solution {
        }
         posI = 0;
         negI = 0 ;
-       for(int i = 0 ; i < n ; i++){
-           nums[i++] = pos[posI++];
-           nums[i] = neg[negI++] ; 
+       for(int i = 0 ; i < n/2 ; i++){
+           nums[2*i] = pos[posI++];
+           nums[2*i+1] = neg[negI++] ; 
        }
 
        return nums;
