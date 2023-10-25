@@ -6,11 +6,11 @@ class Solution {
         int profit = 0 ;
 
         for(int i = 0 ; i < nums.length ; i++){
-            if(nums[i]<=nums[dayOfBuy] ){
+            if(nums[i] < nums[dayOfBuy] ){  //if current num is less than previousdays num then i will buy on this day
                 dayOfBuy = i ;
             }
-           if(i > dayOfSell && nums[i] - nums[dayOfBuy] >= profit){
-                dayOfSell = i;
+           if(i > dayOfBuy && nums[i] - nums[dayOfBuy] >= profit){
+                dayOfSell = i; //if i > previous sell date 
                 profit = Math.max(profit,nums[dayOfSell] - nums[dayOfBuy]);
             }
         }
