@@ -1,7 +1,7 @@
 class Solution {
     public List<Integer> getRow(int n) {
         List<Integer> ans1 = new ArrayList<>();
-        n = n + 1;
+         n = n + 1;
          long ans = 1;
          ans1.add((int)ans);
         // Printing the rest of the part:
