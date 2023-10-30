@@ -1,6 +1,9 @@
 //brute force is nested loops
 //better is hashmap
-
+//more voting algo extended
+//we know n/3 means max we can hold 2 element greater than n/3 times so apply votING ALGO
+//and for 2 2 1 3 when we finish  one loop we get ele 2 cnt = 1 bcz when we dont find a element == ele1 or ele2 we decrement both
+//so run 1 extra loop and get the count of the ele1 and ele2 and add to list if it is greater than n/3
 class Solution {
     public List<Integer> majorityElement(int[] v) {
       int n = v.length; //size of the array
@@ -34,9 +37,9 @@ class Solution {
             if (v[i] == el2) cnt2++;
         }
 
-        int mini = (int)(n / 3) + 1;
-        if (cnt1 >= mini) ls.add(el1);
-        if (cnt2 >= mini) ls.add(el2);
+        int mini = (int)(n / 3) ;
+        if (cnt1 > mini) ls.add(el1);
+        if (cnt2 > mini) ls.add(el2);
 
         // Uncomment the following line
         // if it is told to sort the answer array:
